@@ -6,7 +6,12 @@ This document provides information about the unit tests created for the Fractal 
 
 ## Test Structure
 
-The unit tests are organized in the following structure:
+The unit tests are available in two formats:
+
+1. **Individual test modules** (organized by component)
+2. **Single comprehensive test file** (tests.py in the project root)
+
+### Directory Structure
 
 ```
 grok-mem/
@@ -22,21 +27,32 @@ grok-mem/
 │           ├── test_reflection.py     # Tests for reflection engine
 │           ├── test_state.py          # Tests for conversation state
 │           └── test_synthesis.py      # Tests for synthesis module
-└── run_tests.py       # Test runner script
+├── run_tests.py       # Test runner for individual modules
+└── tests.py           # All-in-one test suite (recommended)
 ```
 
 ## Running the Tests
 
-To run all tests, execute the following command from the project root:
+### Using the All-in-One Test Suite (Recommended)
+
+To run all tests using the comprehensive test suite:
 
 ```bash
-python run_tests.py
+python tests.py
 ```
 
 Or with Python 3 explicitly:
 
 ```bash
-python3 run_tests.py
+python3 tests.py
+```
+
+### Using the Individual Test Modules
+
+Alternatively, you can use the run_tests.py script:
+
+```bash
+python run_tests.py
 ```
 
 ## Test Coverage

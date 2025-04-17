@@ -4,6 +4,25 @@
 
 This document provides information about the unit tests created for the Fractal Communication Framework (FCF).
 
+## Environment Setup
+
+### API Keys
+
+The project uses API keys for certain ML model interactions:
+
+1. Create a `.env` file in the project root by copying the example:
+   ```bash
+   cp .env.example .env
+   ```
+
+2. Edit the `.env` file and add your API keys:
+   ```
+   OPENAI_API_KEY=your_actual_openai_key_here
+   XAI_API_KEY=your_actual_xai_key_here
+   ```
+
+Note: Tests use stub implementations to avoid API calls during testing.
+
 ## Test Structure
 
 The unit tests are available in two formats:
@@ -33,7 +52,21 @@ grok-mem/
 
 ## Running the Tests
 
-### Using the All-in-One Test Suite (Recommended)
+### Java Tests
+
+Run all Java tests:
+```bash
+mvn -B test
+```
+
+Run a specific test:
+```bash
+mvn -B test -Dtest=MLAnchorSelectorTest
+```
+
+### Python Tests
+
+#### Using the All-in-One Test Suite (Recommended)
 
 To run all tests using the comprehensive test suite:
 
@@ -47,7 +80,7 @@ Or with Python 3 explicitly:
 python3 tests.py
 ```
 
-### Using the Individual Test Modules
+#### Using the Individual Test Modules
 
 Alternatively, you can use the run_tests.py script:
 

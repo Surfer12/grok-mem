@@ -20,8 +20,14 @@ jobs:
         distribution: 'temurin'
         cache: maven
     
-    - name: Build and test with Maven
-      run: mvn -B test
+    - name: Build and test with Maven (JaCoCo coverage)
+      run: mvn -B verify
+      
+    - name: Upload Java coverage to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        file: ./target/site/jacoco/jacoco.xml
+        flags: java
       
   python-tests:
     runs-on: ubuntu-latest
@@ -38,15 +44,20 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        pip install coverage
         # Alternative using pixi if needed
         # pip install pixi
         # pixi install
     
-    - name: Run Python tests
+    - name: Run Python tests with coverage
       run: |
-        # Run comprehensive test suite
-        python tests.py
+        # Run comprehensive test suite with coverage
+        coverage run --source=src/main/python tests.py
+        coverage xml -o coverage-report.xml
+        coverage report
         
-    - name: Run individual module tests
-      run: |
-        python run_tests.py
+    - name: Upload coverage reports
+      uses: codecov/codecov-action@v3
+      with:
+        file: ./coverage-report.xml
+        flags: python

@@ -7,7 +7,15 @@ version = "0.1.0"
 
 [tasks]
 run-demo = "python src/main/python/fcf_demo_runner.py"
+java-test = "mvn -B test"
+java-build = "mvn -B clean package"
+java-lint = "mvn -B checkstyle:check"
+java-format = "mvn -B spotless:apply"
+java-docs = "mvn -B javadoc:javadoc"
 
 [dependencies]
 python = ">=3.8"
 typing-extensions = "*"
+maven = "*"
+checkstyle = "*"
+google-java-format = "*"

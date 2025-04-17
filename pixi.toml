@@ -6,5 +6,8 @@ platforms = ["osx-arm64"]
 version = "0.1.0"
 
 [tasks]
+run-demo = "python src/main/python/fcf_demo_runner.py"
 
 [dependencies]
+python = ">=3.8"
+typing-extensions = "*"

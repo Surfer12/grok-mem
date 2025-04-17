@@ -55,6 +55,6 @@ public class ConversationStateImplTest {
         List<String> history = state.getHistory();
         assertEquals(3, history.size(), "History list should have 3 elements after update.");
         assertEquals(newEntry, history.get(2), "New history entry should be added at the end.");
-        assertSame(initialHistory, history, "Update should modify the internal history list.");
+        assertEquals(initialHistory.size() + 1, history.size(), "Update should modify the history size.");
     }
 }

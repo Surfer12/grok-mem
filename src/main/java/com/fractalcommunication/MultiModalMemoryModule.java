@@ -25,11 +25,9 @@ public class MultiModalMemoryModule implements IMemoryModule {
 
     @Override
     public void saveLongTermInteractionStyle(String userId, Map<String, String> styleData) throws FCFException {
-        IUserProfile profile = profiles.get(userId);
-        if (profile != null) {
-            profile.updateInteractionStyle(styleData);
-            longTermSaves++;
-        }
+        IUserProfile profile = loadUserProfile(userId);
+        profile.updateInteractionStyle(styleData);
+        longTermSaves++;
     }
 
     @Override

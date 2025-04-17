@@ -1,6 +1,10 @@
 com/fractalcommunication/BasicSynthesisModuleTest.class
+com/fractalcommunication/ConversationStateImplTest.class
+com/fractalcommunication/CustomAnchorTest.class
+com/fractalcommunication/MultiModalMemoryModuleTest.class
 com/fractalcommunication/UserProfileImplTest.class
 com/fractalcommunication/BasicExerciseEngineTest.class
 com/fractalcommunication/BasicReflectionEngineTest.class
 com/fractalcommunication/EnhancedConversationOrchestratorTest.class
+com/fractalcommunication/BasicAnchorModuleTest.class
 com/fractalcommunication/BasicMetricsLoggerTest.class

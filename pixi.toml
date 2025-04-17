@@ -12,6 +12,10 @@ java-build = "mvn -B clean package"
 java-lint = "mvn -B checkstyle:check"
 java-format = "mvn -B spotless:apply"
 java-docs = "mvn -B javadoc:javadoc"
+java-micro-test = "./run-micro-tests.sh"
+java-all-tests = "./run-all-tests.sh"
+java-test-temurin23 = { cmd = "mvn -B test", env = { JAVA_HOME = "/Library/Java/JavaVirtualMachines/temurin-23.jdk/Contents/Home" } }
+java-all-tests-temurin23 = { cmd = "./run-all-tests.sh", env = { JAVA_HOME = "/Library/Java/JavaVirtualMachines/temurin-23.jdk/Contents/Home" } }
 
 [dependencies]
 python = ">=3.8"

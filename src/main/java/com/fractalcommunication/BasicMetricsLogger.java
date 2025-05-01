@@ -12,14 +12,14 @@ public class BasicMetricsLogger implements IMetricsLogger {
 
   @Override
   public void logMetric(String moduleName, String metricName, Object value) {
-    metrics.computeIfAbsent(moduleName + "_" + metricName, key -> new ArrayList<>()).add(value);
+    metrics.computeIfAbsent(moduleName + "_" + metricName, _ -> new ArrayList<Object>()).add(value);
     System.out.println("Logged metric: " + moduleName + " - " + metricName + " = " + value);
   }
 
   @Override
   public void logError(String moduleName, String errorMessage, Throwable cause) {
     errors
-        .computeIfAbsent(moduleName, key -> new ArrayList<>())
+        .computeIfAbsent(moduleName, key -> new ArrayList<String>())
         .add(errorMessage + (cause != null ? " Cause: " + cause.getMessage() : ""));
     System.err.println("Logged error in " + moduleName + ": " + errorMessage);
   }

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Synthesis Module for Fractal Communication Framework
 
-from com.fractalcommunication.anchor import IAnchor
+from com.fractalcommunication.interfaces import IAnchor
 import random
 
 class SynthesisModule:

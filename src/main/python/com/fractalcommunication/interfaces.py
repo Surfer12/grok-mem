@@ -20,6 +20,21 @@ class IAnchor(ABC):
     def microtest(self) -> bool:
         """Provable micro-test for safety/efficacy."""
         pass
+        
+    @abstractmethod
+    def get_focus(self) -> str:
+        """Get the focus area of this anchor (what to concentrate on)."""
+        pass
+        
+    @abstractmethod
+    def get_action(self) -> str:
+        """Get the recommended action for this anchor."""
+        pass
+        
+    @abstractmethod
+    def get_benefit(self) -> str:
+        """Get the benefit or outcome of applying this anchor."""
+        pass
 
 
 class IReflectionEngine(ABC):

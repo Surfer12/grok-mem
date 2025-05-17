@@ -12,7 +12,7 @@ class AnchorModule(IAnchorModule):
         print(f"Registered anchor: {anchor.name()}")
 
     def select_anchor(self, state: ConversationState) -> Optional[IAnchor]:
-        """Select an anchor based on user input content for more contextual responses."""
+        """Select an anchor based on sentiment analysis and user input content."""
         if not self._anchors:
             return None
             
@@ -20,7 +20,23 @@ class AnchorModule(IAnchorModule):
         default_index = len(state.history) % len(self._anchors)
         default_anchor_name = list(self._anchors.keys())[default_index]
         
-        # Analyze user input for emotional cues or intent to select a more appropriate anchor
+        # First, check if sentiment data is available
+        if state.sentiment and 'label' in state.sentiment:
+            # Use sentiment-based anchor selection
+            if state.sentiment['label'] == 'NEGATIVE' and state.sentiment['score'] > 0.7:
+                # Strong negative sentiment - prioritize grounding
+                if "grounding" in self._anchors:
+                    return self._anchors.get("grounding")
+            elif state.sentiment['label'] == 'NEGATIVE' and state.sentiment['score'] > 0.5:
+                # Moderate negative sentiment - prioritize connection
+                if "connection" in self._anchors:
+                    return self._anchors.get("connection")
+            elif state.sentiment['label'] == 'POSITIVE' and state.sentiment['score'] > 0.7:
+                # Strong positive sentiment - prioritize openness
+                if "openness" in self._anchors:
+                    return self._anchors.get("openness")
+        
+        # Fallback to keyword analysis if sentiment is neutral or not available
         user_input = state.user_input.lower()
         if any(word in user_input for word in ["frustrating", "frustrated", "annoying", "difficult", "hard"]):
             # Prioritize grounding for frustration or difficulty

@@ -4,8 +4,12 @@
 from com.fractalcommunication.orchestrator import Orchestrator
 from com.fractalcommunication.anchor import ConnectionAnchor, GroundingAnchor, OpennessAnchor
 from com.fractalcommunication.anchor_module import AnchorModule
+import time
 
 def main():
+    print("=== Fractal Communication Framework Demo ===\n")
+    print("Initializing framework components...")
+    
     # Create anchor module and register anchors
     anchor_module = AnchorModule()
     plugin_anchors = [ConnectionAnchor(), GroundingAnchor(), OpennessAnchor()]
@@ -22,40 +26,43 @@ def main():
     # Create orchestrator with our anchor module
     orchestrator = Orchestrator(anchor_module=anchor_module)
     
-    # Sample conversation with varied inputs
-    print("\n=== Sample Conversation ===")
-    
-    # Scenario 1: Emotional concern about disagreement
-    user_input_1 = "It\'s hard to express disagreement without causing tension."
+    # Define test user and session
     user_id = "user123"
-    session_id = "session456"
-    print(f"User: {user_input_1}")
-    response_1 = orchestrator.run_conversation(user_input_1, user_id, session_id)
-    print(f"AI: {response_1}")
+    session_id = f"session_{int(time.time())}"
     
-    # Scenario 2: Follow-up emotional concern
-    user_input_2 = "I worry about hurting the other person\'s feelings."
-    print(f"\nUser: {user_input_2}")
-    response_2 = orchestrator.run_conversation(user_input_2, user_id, session_id)
-    print(f"AI: {response_2}")
+    # Sample conversation with varied inputs (emotion-labeled)
+    print("\n=== Sample Conversation with Sentiment Analysis ===\n")
     
-    # Scenario 3: Curiosity-driven query
-    user_input_3 = "How can I better understand different perspectives?"
-    print(f"\nUser: {user_input_3}")
-    response_3 = orchestrator.run_conversation(user_input_3, user_id, session_id)
-    print(f"AI: {response_3}")
+    # Test various emotional inputs
+    test_inputs = [
+        # Positive inputs
+        "I'm really excited about learning how to communicate better!",
+        
+        # Negative inputs
+        "I'm feeling very frustrated and overwhelmed with all this conflict.",
+        
+        # Curiosity-driven inputs
+        "How can I better understand different perspectives?",
+        
+        # Mixed emotional inputs
+        "I enjoy talking with my team but sometimes feel anxious about expressing disagreement.",
+        
+        # Complex request
+        "Can you help me navigate a tough conversation with a colleague about a missed deadline?"
+    ]
     
-    # Scenario 4: Frustration or challenge
-    user_input_4 = "I keep misunderstanding others, and it\'s frustrating."
-    print(f"\nUser: {user_input_4}")
-    response_4 = orchestrator.run_conversation(user_input_4, user_id, session_id)
-    print(f"AI: {response_4}")
+    # Run each test input through the framework
+    for i, user_input in enumerate(test_inputs):
+        print(f"\n--- Test Case {i+1} ---")
+        print(f"User: {user_input}")
+        
+        # Process through orchestrator
+        response = orchestrator.run_conversation(user_input, user_id, session_id)
+        print(f"AI: {response}\n")
     
-    # Scenario 5: Complex request for guidance
-    user_input_5 = "Can you help me navigate a tough conversation with a colleague about a missed deadline?"
-    print(f"\nUser: {user_input_5}")
-    response_5 = orchestrator.run_conversation(user_input_5, user_id, session_id)
-    print(f"AI: {response_5}")
+    print("=== Demo Complete ===\n")
+    print("The Fractal Communication Framework successfully analyzed sentiment")
+    print("and adapted responses based on emotional context.")
     
 if __name__ == "__main__":
     main()

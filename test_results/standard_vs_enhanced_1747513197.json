@@ -1,0 +1,100 @@
+{
+  "test_name": "standard_vs_enhanced",
+  "timestamp": 1747513197,
+  "variant_a": {
+    "name": "Standard Anchors",
+    "config": {
+      "name": "Standard Anchors"
+    }
+  },
+  "variant_b": {
+    "name": "Enhanced Anchors",
+    "config": {
+      "name": "Enhanced Anchors"
+    }
+  },
+  "prompts": [
+    {
+      "text": "I want to know about solving complex problems.",
+      "persona": "analytical"
+    },
+    {
+      "text": "Tell me how to deal with optimizing processes.",
+      "persona": "analytical"
+    }
+  ],
+  "results": {
+    "a": {
+      "scores": [
+        0.41619999999999996,
+        0.3774666666666666
+      ],
+      "times": [
+        0.34611988067626953,
+        0.2751500606536865
+      ],
+      "responses": [
+        {
+          "prompt": "I want to know about solving complex problems.",
+          "response": "Based on 'You mentioned: 'I want to know about solving complex problems.'. Let's explore what underlying needs or patterns might be present.', let's look at openness and curiosity. Perhaps approach conversations with a beginner's mind could improve discover new perspectives and solutions. Embrace this curiosity as a path to growth\u2014this can open new ways of seeing and connecting.",
+          "score": 0.41619999999999996,
+          "persona_score": 0.4,
+          "persona": "analytical"
+        },
+        {
+          "prompt": "Tell me how to deal with optimizing processes.",
+          "response": "Your input: 'You mentioned: 'Tell me how to deal with optimizing processes.'. Let's explore what underlying needs or patterns might be present.'. Consider focusing on openness and curiosity. approach conversations with a beginner's mind might be beneficial here. Embrace this curiosity as a path to growth\u2014this can open new ways of seeing and connecting.",
+          "score": 0.3774666666666666,
+          "persona_score": 0.4,
+          "persona": "analytical"
+        }
+      ]
+    },
+    "b": {
+      "scores": [
+        0.419,
+        0.3774666666666666
+      ],
+      "times": [
+        0.0080718994140625,
+        0.007167816162109375
+      ],
+      "responses": [
+        {
+          "prompt": "I want to know about solving complex problems.",
+          "response": "Reflecting on 'You mentioned: 'I want to know about solving complex problems.'. Let's explore what underlying needs or patterns might be present.', I see a need for openness and curiosity. How about approach conversations with a beginner's mind? This often helps discover new perspectives and solutions. Embrace this curiosity as a path to growth\u2014this can open new ways of seeing and connecting.",
+          "score": 0.419,
+          "persona_score": 0.4,
+          "persona": "analytical"
+        },
+        {
+          "prompt": "Tell me how to deal with optimizing processes.",
+          "response": "Your input: 'You mentioned: 'Tell me how to deal with optimizing processes.'. Let's explore what underlying needs or patterns might be present.'. Consider focusing on openness and curiosity. approach conversations with a beginner's mind might be beneficial here. Embrace this curiosity as a path to growth\u2014this can open new ways of seeing and connecting.",
+          "score": 0.3774666666666666,
+          "persona_score": 0.4,
+          "persona": "analytical"
+        }
+      ]
+    }
+  },
+  "summary": {
+    "test_name": "standard_vs_enhanced",
+    "total_trials": 2,
+    "a_name": "Standard Anchors",
+    "b_name": "Enhanced Anchors",
+    "a_score_mean": 0.39683333333333326,
+    "b_score_mean": 0.39823333333333333,
+    "a_time_mean": 0.310634970664978,
+    "b_time_mean": 0.0076198577880859375,
+    "winner": "B",
+    "improvement_percent": 0.3527929441411344,
+    "per_persona": {
+      "analytical": {
+        "a_mean": 0.4,
+        "b_mean": 0.4,
+        "winner": "Tie",
+        "difference": 0.0
+      }
+    }
+  }
+}

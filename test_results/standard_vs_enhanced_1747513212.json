@@ -1,0 +1,96 @@
+{
+  "test_name": "standard_vs_enhanced",
+  "timestamp": 1747513212,
+  "variant_a": {
+    "name": "Standard Anchors",
+    "config": {
+      "name": "Standard Anchors"
+    }
+  },
+  "variant_b": {
+    "name": "Enhanced Anchors",
+    "config": {
+      "name": "Enhanced Anchors"
+    }
+  },
+  "prompts": [
+    {
+      "text": "I want to know about understanding data patterns.",
+      "persona": "analytical"
+    }
+  ],
+  "results": {
+    "a": {
+      "scores": [
+        0.4505333333333333
+      ],
+      "times": [
+        0.04823780059814453
+      ],
+      "responses": [
+        {
+          "prompt": "I want to know about understanding data patterns.",
+          "response": "You mentioned: 'You mentioned: 'I want to know about understanding data patterns.'. Let's explore what underlying needs or patterns might be present.'. Let's explore openness and curiosity. Try approach conversations with a beginner's mind\u2014this can help discover new perspectives and solutions. Embrace this curiosity as a path to growth\u2014this can open new ways of seeing and connecting.",
+          "score": 0.4505333333333333,
+          "persona_score": 0.4,
+          "persona": "analytical"
+        }
+      ]
+    },
+    "b": {
+      "scores": [
+        0.4529333333333333
+      ],
+      "times": [
+        0.007169008255004883
+      ],
+      "responses": [
+        {
+          "prompt": "I want to know about understanding data patterns.",
+          "response": "Reflecting on 'You mentioned: 'I want to know about understanding data patterns.'. Let's explore what underlying needs or patterns might be present.', I see a need for openness and curiosity. How about approach conversations with a beginner's mind? This often helps discover new perspectives and solutions. Embrace this curiosity as a path to growth\u2014this can open new ways of seeing and connecting.",
+          "score": 0.4529333333333333,
+          "persona_score": 0.4,
+          "persona": "analytical"
+        }
+      ]
+    }
+  },
+  "summary": {
+    "test_name": "standard_vs_enhanced",
+    "total_trials": 1,
+    "a_name": "Standard Anchors",
+    "b_name": "Enhanced Anchors",
+    "a_score_mean": 0.4505333333333333,
+    "b_score_mean": 0.4529333333333333,
+    "a_time_mean": 0.04823780059814453,
+    "b_time_mean": 0.007169008255004883,
+    "winner": "B",
+    "improvement_percent": 0.5327019828351613,
+    "per_persona": {
+      "analytical": {
+        "a_mean": 0.4,
+        "b_mean": 0.4,
+        "winner": "Tie",
+        "difference": 0.0
+      },
+      "emotional": {
+        "a_mean": 0,
+        "b_mean": 0,
+        "winner": "Tie",
+        "difference": 0
+      },
+      "anxious": {
+        "a_mean": 0,
+        "b_mean": 0,
+        "winner": "Tie",
+        "difference": 0
+      },
+      "practical": {
+        "a_mean": 0,
+        "b_mean": 0,
+        "winner": "Tie",
+        "difference": 0
+      }
+    }
+  }
+}

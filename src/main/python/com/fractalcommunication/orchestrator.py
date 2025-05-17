@@ -50,7 +50,7 @@ class Orchestrator:
         response = self.synthesis_module.synthesize(
             reflection=reflection,
             anchor=anchor,
-            anchor_name=anchor_name,  # Ensure this is a string
+            anchor_name=anchor_name,
             user_history=self.memory_module.get_short_term()
         )
         metrics["times"]["synthesis"] = time.time() - start_time
@@ -91,4 +91,3 @@ class Orchestrator:
             # Log total processing time
             total_time = sum(metrics["times"].values())
             print(f"[Metrics] Total processing time: {total_time:.4f}s")
-EOF 2>&1
